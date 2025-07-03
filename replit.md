@@ -1,8 +1,8 @@
-# ZimPay Gateway - Payment Processing System
+# BankPay Gateway - Banking Payment Processing System
 
 ## Overview
 
-ZimPay Gateway is a comprehensive payment processing system built with modern web technologies. The application provides an admin dashboard for managing payment methods, merchants, transactions, and webhooks. It features a React frontend with TypeScript, a Node.js/Express backend, and uses PostgreSQL with Drizzle ORM for data persistence.
+BankPay Gateway is a comprehensive banking-grade payment processing system built for financial institutions. The application provides an admin dashboard for managing payment methods, merchants, transactions, compliance, and settlement operations. It features sandbox and live environment modes, advanced compliance monitoring, KYC management, and comprehensive audit trails. Built with React frontend, Node.js/Express backend, and PostgreSQL with Drizzle ORM.
 
 ## System Architecture
 
@@ -37,12 +37,14 @@ The system uses the following main entities:
 
 #### Frontend Pages
 - **Dashboard**: Overview with metrics and recent transactions
+- **Transactions**: Transaction listing, filtering, and monitoring
+- **Merchants**: Comprehensive merchant onboarding and KYC management
 - **Payment Methods**: CRUD operations for payment options
-- **Transactions**: Transaction listing and filtering
-- **Merchants**: Merchant account management
-- **Webhooks**: Webhook endpoint configuration
-- **API Documentation**: Developer integration guide
-- **Settings**: System configuration
+- **Compliance**: KYC management, document review, audit logs, and risk assessment
+- **Settlement**: Financial settlement reports, processing, and banking integration
+- **Webhooks**: Webhook endpoint configuration and testing
+- **API Documentation**: Developer integration guide with sandbox/live examples
+- **Settings**: System configuration with environment-specific settings
 
 #### API Endpoints
 - `/api/dashboard/stats` - Dashboard metrics
@@ -98,10 +100,43 @@ The system uses the following main entities:
 - **Connection**: Pooled connections via Neon serverless driver
 - **Environment**: DATABASE_URL environment variable required
 
+## Banking Features
+
+### Environment Management
+- **Sandbox Mode**: Safe testing environment with test data and credentials
+- **Live Mode**: Production environment with real transaction processing
+- **Environment Toggle**: Easy switching between sandbox and live modes in the admin interface
+
+### Compliance & KYC
+- **KYC Management**: Complete Know Your Customer verification workflow
+- **Document Review**: Upload and review business registration, tax certificates, and identification documents
+- **Risk Assessment**: Automated risk scoring and manual risk level assignment
+- **Audit Logs**: Comprehensive logging of all admin actions for compliance tracking
+- **Regulatory Reporting**: Built-in reports for financial regulatory compliance
+
+### Settlement & Banking Integration
+- **Automated Settlement**: Daily/weekly settlement report generation
+- **Bank Integration**: Direct settlement to merchant bank accounts
+- **Fee Management**: Configurable transaction fees and revenue tracking
+- **Settlement Reports**: Detailed financial reports with transaction breakdowns
+- **Reconciliation**: Bank reconciliation tools and dispute management
+
+### Enhanced Security
+- **API Key Management**: Environment-specific API keys with permission controls
+- **IP Whitelisting**: Restrict API access to authorized IP addresses
+- **Transaction Limits**: Daily and monthly transaction limits per merchant
+- **Fraud Detection**: Risk scoring and fraud flag detection
+
 ## Changelog
 
 ```
 Changelog:
+- July 03, 2025. Transformed into banking-grade payment gateway
+  - Added sandbox/live environment separation
+  - Implemented comprehensive KYC and compliance management
+  - Added settlement reporting and bank integration features
+  - Enhanced security with risk assessment and audit logging
+  - Updated UI for banking-specific workflows
 - July 03, 2025. Initial setup
 ```
 

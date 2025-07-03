@@ -3,10 +3,13 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { EnvironmentProvider } from "@/contexts/environment-context";
 import Dashboard from "@/pages/dashboard";
 import PaymentMethods from "@/pages/payment-methods";
 import Transactions from "@/pages/transactions";
 import Merchants from "@/pages/merchants";
+import Compliance from "@/pages/compliance";
+import Settlement from "@/pages/settlement";
 import ApiDocs from "@/pages/api-docs";
 import Webhooks from "@/pages/webhooks";
 import Settings from "@/pages/settings";
@@ -22,11 +25,13 @@ function Router() {
         <Topbar />
         <Switch>
           <Route path="/" component={Dashboard} />
-          <Route path="/payment-methods" component={PaymentMethods} />
           <Route path="/transactions" component={Transactions} />
           <Route path="/merchants" component={Merchants} />
-          <Route path="/api-docs" component={ApiDocs} />
+          <Route path="/payment-methods" component={PaymentMethods} />
+          <Route path="/compliance" component={Compliance} />
+          <Route path="/settlement" component={Settlement} />
           <Route path="/webhooks" component={Webhooks} />
+          <Route path="/api-docs" component={ApiDocs} />
           <Route path="/settings" component={Settings} />
           <Route component={NotFound} />
         </Switch>
@@ -38,10 +43,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <EnvironmentProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </EnvironmentProvider>
     </QueryClientProvider>
   );
 }
